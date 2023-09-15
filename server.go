@@ -1,5 +1,5 @@
-// +build !index_generate
-// +build !novnc_generate
+//go:build !index_generate && !novnc_generate
+// +build !index_generate,!novnc_generate
 
 package main
 
@@ -140,7 +140,7 @@ func main() {
 	r.Handle("/vnc/{host:"+ipv6Regexp+"}", vnc)
 	r.Handle("/vnc/{host:"+ipv6Regexp+"}/{port:[0-9]+}", vnc)
 
-	r.NotFoundHandler = fs("noVNC-1.3.0", noVNC)
+	r.NotFoundHandler = fs("noVNC-1.4.0", noVNC)
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		w.WriteHeader(http.StatusOK)
