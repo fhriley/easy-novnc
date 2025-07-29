@@ -10,7 +10,7 @@ import (
 )
 
 func TestNoVNC(t *testing.T) {
-	f, err := noVNC.Open("noVNC-1.4.0")
+	f, err := noVNC.Open("noVNC-1.6.0")
 	if err != nil {
 		t.Errorf("could not open noVNC root dir: %v", err)
 	}
@@ -20,7 +20,7 @@ func TestNoVNC(t *testing.T) {
 		t.Errorf("could not read noVNC root dir: %v", err)
 	}
 
-	f, err = noVNC.Open("noVNC-1.4.0/vnc.html")
+	f, err = noVNC.Open("noVNC-1.6.0/vnc.html")
 	if err != nil {
 		t.Errorf("could not open vnc.html: %v", err)
 	}
